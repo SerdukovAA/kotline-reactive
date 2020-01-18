@@ -1,0 +1,16 @@
+#  docker-compose -f docker-compose.yml up
+#  docker-compose -f docker-compose.yml down -v
+
+version: '3'
+services:
+
+  postgres:
+    image: postgres:9.6.1
+    volumes:
+      - ./env:/docker-entrypoint-initdb.d/
+    ports:
+      - 5422:5432
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
