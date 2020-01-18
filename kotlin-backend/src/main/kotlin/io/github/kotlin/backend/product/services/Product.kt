@@ -4,10 +4,11 @@ import io.github.kotlin.backend.product.dao.ProductRepository
 import io.github.kotlin.backend.product.dao.ProductSnapshot
 import java.util.*
 
-class Product(val id: UUID, var name: String, var price: Int) {
+class Product(val repo: ProductRepository, snap: ProductSnapshot) {
 
-    lateinit var repo: ProductRepository;
-
+    val id: UUID = checkNotNull(snap.id, {"Id should be set beforehand"})
+    var name: String = snap.name
+    var price: Int = snap.price
 
     fun save() {
         repo.save(getSpapshot())

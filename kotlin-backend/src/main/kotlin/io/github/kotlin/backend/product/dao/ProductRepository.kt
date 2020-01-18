@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository
 import java.util.*
 
 @Repository
- interface ProductRepository : CrudRepository<ProductSnapshot, UUID>
+interface ProductRepository : CrudRepository<ProductSnapshot, UUID>
 

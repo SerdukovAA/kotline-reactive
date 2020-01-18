@@ -2,7 +2,6 @@ package io.github.kotlin.backend.product.services
 
 import io.github.kotlin.backend.product.dao.ProductRepository
 import io.github.kotlin.backend.product.dao.ProductSnapshot
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import java.util.*
 
@@ -15,10 +14,7 @@ class ProductFactory (private val repo: ProductRepository) {
     }
 
     private fun map(snap: ProductSnapshot): Product{
-        var prod =  Product(
-                checkNotNull(snap.id) { "Id must be set beforehand" }
-               , snap.name, snap.price)
-        prod.repo = this.repo
+        var prod =  Product(this.repo, snap)
         return prod;
     }
 
