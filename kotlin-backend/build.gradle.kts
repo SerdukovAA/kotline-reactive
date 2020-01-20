@@ -16,8 +16,10 @@ repositories {
 }
 
 dependencies {
-	implementation ("org.postgresql:postgresql:42.2.9")
+	implementation ("org.springframework.kafka:spring-kafka:2.4.1.RELEASE")
 
+	implementation ("org.postgresql:postgresql:42.2.9")
+	implementation ("org.apache.kafka:kafka-clients:2.4.0")
 	implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
