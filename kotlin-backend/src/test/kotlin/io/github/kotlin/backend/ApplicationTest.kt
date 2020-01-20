@@ -2,6 +2,10 @@ package io.github.kotlin.backend
 
 import io.github.kotlin.backend.product.dto.AddProductDTO
 import io.github.kotlin.backend.product.dto.ProductDTO
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
@@ -24,8 +28,7 @@ class ApplicationTest {
         print(result)
 
 
-        val updatet
-                = testRestTemplate.postForObject<ProductDTO>("/products/2dc177c8-9ece-446a-bd7e-3600fa1b2c1b/price/524")
+        val updatet = testRestTemplate.postForObject<ProductDTO>("/products/2dc177c8-9ece-446a-bd7e-3600fa1b2c1b/price/524")
         print(updatet)
 
 
@@ -40,10 +43,9 @@ class ApplicationTest {
 
 
     @Test
-    fun add_new_product(){
+    fun add_new_product() {
 
-        val updatet
-                = testRestTemplate.postForObject<ProductDTO>(
+        val updatet = testRestTemplate.postForObject<ProductDTO>(
                 "/products",
                 AddProductDTO("Новый товар", 34)
         )
