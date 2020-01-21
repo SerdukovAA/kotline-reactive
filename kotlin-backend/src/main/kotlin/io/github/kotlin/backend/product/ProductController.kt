@@ -30,4 +30,14 @@ class ProductController(private val productService: ProductService) {
         return productService.getAll()
     }
 
+    @PostMapping("ship/{id}/{items}")
+    fun shipping(@PathVariable id: UUID, @PathVariable items: Int) {
+         productService.shipping(id, items)
+    }
+
+    @PostMapping("sale/{id}/{items}")
+    fun sale(@PathVariable id: UUID, @PathVariable items: Int) {
+         productService.sale(id, items)
+    }
+
 }

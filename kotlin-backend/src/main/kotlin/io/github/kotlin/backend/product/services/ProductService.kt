@@ -31,4 +31,15 @@ class ProductService(private var productFactory: ProductFactory) {
         return map(prod)
     }
 
+    @Transactional
+    fun shipping(id: UUID, items: Int) {
+        var product = productFactory.findById(id)
+        product.shipping(items)
+    }
+
+    fun sale(id: UUID, items: Int) {
+        var product = productFactory.findById(id)
+        product.sale(items)
+    }
+
 }

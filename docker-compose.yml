@@ -4,6 +4,13 @@
 version: '3'
 services:
 
+
+  zookeeper:
+    image: wurstmeister/zookeeper
+    ports:
+      - 2181
+    hostname: zookeeper
+
   postgres:
     image: postgres:9.6.1
     volumes:
@@ -15,11 +22,6 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
 
-  zookeeper:
-    image: wurstmeister/zookeeper
-    ports:
-      - "2181"
-    hostname: zookeeper
 
   kafka:
     image: wurstmeister/kafka

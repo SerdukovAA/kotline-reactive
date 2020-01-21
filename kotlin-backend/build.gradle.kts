@@ -19,6 +19,7 @@ dependencies {
 	implementation ("org.springframework.kafka:spring-kafka:2.4.1.RELEASE")
 	implementation ("org.postgresql:postgresql:42.2.9")
 	implementation ("org.apache.kafka:kafka-clients:2.4.0")
+
 	implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
@@ -30,8 +31,6 @@ dependencies {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
 	}
 	testImplementation("io.projectreactor:reactor-test")
-	testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
-	testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
 }
 
 tasks.withType<Test> {
